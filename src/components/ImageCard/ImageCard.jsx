@@ -1,16 +1,22 @@
-import PropTypes from 'prop-types';
-import styles from './ImageCard.module.css';
+import PropTypes from "prop-types";
 
-const ImageCard = ({ image }) => {
+
+function ImageCard({ image, onClick }) {
   return (
-    <div className={styles.imageCard}>
-      <img src={image.urls.small} alt={image.alt_description} />
+    <div className="image-card">
+      <img
+        src={image.urls.small}
+        alt={image.alt_description}
+        onClick={onClick}
+        className="image"
+      />
     </div>
   );
-};
+}
 
 ImageCard.propTypes = {
   image: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ImageCard;

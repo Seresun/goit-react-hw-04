@@ -1,19 +1,25 @@
-import ReactModal from 'react-modal';
-import PropTypes from 'prop-types';
-import styles from './ImageModal.module.css';
+import PropTypes from "prop-types";
+import Modal from "react-modal";
 
-const ImageModal = ({ isOpen, onRequestClose, image }) => {
+function ImageModal({ isOpen, onRequestClose, image }) {
   return (
-    <ReactModal isOpen={isOpen} onRequestClose={onRequestClose}>
-      <div className={styles.modalContent}>
-        <img src={image.urls.regular} alt={image.alt_description} />
-        <p>Author: {image.user.name}</p>
-        <p>Likes: {image.likes}</p>
-        <button onClick={onRequestClose}>Close</button>
-      </div>
-    </ReactModal>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      contentLabel="Image Modal"
+      className="modal"
+    >
+      <button onClick={onRequestClose} className="close-btn">
+        Close
+      </button>
+      <img
+        src={image.urls.regular}
+        alt={image.alt_description}
+        className="modal-image"
+      />
+    </Modal>
   );
-};
+}
 
 ImageModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,

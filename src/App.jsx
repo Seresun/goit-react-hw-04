@@ -47,6 +47,7 @@ const App = () => {
       setLoading(false);
     }
   }, [searchQuery, page]);
+
   useEffect(() => {
     fetchImages();
   }, [fetchImages]);
